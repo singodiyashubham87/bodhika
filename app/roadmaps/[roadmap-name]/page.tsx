@@ -1,9 +1,27 @@
 import { Navbar } from "@/components/navbar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Code2, Database, Globe, LineChart, Server, Smartphone } from "lucide-react";
+import {
+  Code2,
+  Database,
+  Globe,
+  LineChart,
+  Server,
+  Smartphone,
+} from "lucide-react";
 
-const roadmaps = {
+import { LucideIcon } from "lucide-react";
+
+type Roadmap = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  progress: number;
+  paths: string[];
+  color: string;
+};
+
+const roadmaps: { [key: string]: Roadmap } = {
   "web-development": {
     title: "Web Development",
     description: "Frontend, Backend, and Full Stack Development",
@@ -25,7 +43,13 @@ const roadmaps = {
     description: "AI, Deep Learning, and Data Science",
     icon: LineChart,
     progress: 0,
-    paths: ["Python", "Statistics", "Neural Networks", "Computer Vision", "NLP"],
+    paths: [
+      "Python",
+      "Statistics",
+      "Neural Networks",
+      "Computer Vision",
+      "NLP",
+    ],
     color: "text-purple-500",
   },
   "mobile-development": {
@@ -60,7 +84,11 @@ export function generateStaticParams() {
   }));
 }
 
-export default function RoadmapDetail({ params }: { params: { "roadmap-name": string } }) {
+export default function RoadmapPage({
+  params,
+}: {
+  params: { "roadmap-name": string };
+}) {
   if (!params) {
     return (
       <div className="text-center mt-10">
@@ -69,7 +97,7 @@ export default function RoadmapDetail({ params }: { params: { "roadmap-name": st
     );
   }
 
-  const roadmapData = roadmaps[params["roadmap-name"]];
+  const roadmapData: Roadmap | undefined = roadmaps[params["roadmap-name"]];
 
   if (!roadmapData) {
     return (
@@ -89,7 +117,9 @@ export default function RoadmapDetail({ params }: { params: { "roadmap-name": st
               <roadmapData.icon className={`h-10 w-10 ${roadmapData.color}`} />
               <div>
                 <CardTitle>{roadmapData.title}</CardTitle>
-                <p className="text-muted-foreground">{roadmapData.description}</p>
+                <p className="text-muted-foreground">
+                  {roadmapData.description}
+                </p>
               </div>
             </div>
           </CardHeader>
