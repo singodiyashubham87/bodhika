@@ -1,7 +1,7 @@
-import { Navbar } from "@/components/navbar"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
-import { Code2, Database, Globe, LineChart, Server, Smartphone } from "lucide-react"
+import { Navbar } from "@/components/navbar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Code2, Database, Globe, LineChart, Server, Smartphone } from "lucide-react";
 
 const roadmaps = {
   "web-development": {
@@ -10,7 +10,7 @@ const roadmaps = {
     icon: Globe,
     progress: 0,
     paths: ["HTML/CSS", "JavaScript", "React", "Node.js", "Databases"],
-    color: "text-blue-500"
+    color: "text-blue-500",
   },
   "data-structures-and-algorithms": {
     title: "Data Structures & Algorithms",
@@ -18,7 +18,7 @@ const roadmaps = {
     icon: Code2,
     progress: 0,
     paths: ["Arrays", "Linked Lists", "Trees", "Graphs", "Dynamic Programming"],
-    color: "text-green-500"
+    color: "text-green-500",
   },
   "machine-learning": {
     title: "Machine Learning",
@@ -26,7 +26,7 @@ const roadmaps = {
     icon: LineChart,
     progress: 0,
     paths: ["Python", "Statistics", "Neural Networks", "Computer Vision", "NLP"],
-    color: "text-purple-500"
+    color: "text-purple-500",
   },
   "mobile-development": {
     title: "Mobile Development",
@@ -34,7 +34,7 @@ const roadmaps = {
     icon: Smartphone,
     progress: 0,
     paths: ["React Native", "Flutter", "iOS", "Android", "Mobile Design"],
-    color: "text-orange-500"
+    color: "text-orange-500",
   },
   "backend-development": {
     title: "Backend Development",
@@ -42,7 +42,7 @@ const roadmaps = {
     icon: Server,
     progress: 0,
     paths: ["APIs", "Databases", "Authentication", "Cloud", "DevOps"],
-    color: "text-red-500"
+    color: "text-red-500",
   },
   "database-engineering": {
     title: "Database Engineering",
@@ -50,14 +50,14 @@ const roadmaps = {
     icon: Database,
     progress: 0,
     paths: ["SQL", "NoSQL", "Data Modeling", "Performance", "Security"],
-    color: "text-yellow-500"
-  }
-}
+    color: "text-yellow-500",
+  },
+};
 
 export function generateStaticParams() {
   return Object.keys(roadmaps).map((roadmap) => ({
     "roadmap-name": roadmap,
-  }))
+  }));
 }
 
 interface RoadmapParams {
@@ -66,13 +66,13 @@ interface RoadmapParams {
   };
 }
 
-export default function RoadmapDetail({ params }: RoadmapParams) {
+export default function RoadmapDetail({ params }: { params: { "roadmap-name": string } }) {
   if (!params) {
     return (
       <div className="text-center mt-10">
         <h1 className="text-2xl font-bold">Roadmap Not Found</h1>
       </div>
-    )
+    );
   }
 
   const roadmapData = roadmaps[params["roadmap-name"]];
@@ -82,7 +82,7 @@ export default function RoadmapDetail({ params }: RoadmapParams) {
       <div className="text-center mt-10">
         <h1 className="text-2xl font-bold">Roadmap Not Found</h1>
       </div>
-    )
+    );
   }
 
   return (
@@ -103,7 +103,7 @@ export default function RoadmapDetail({ params }: RoadmapParams) {
             <Progress value={roadmapData.progress} className="h-3 mb-4" />
             <h2 className="text-xl font-semibold mb-3">Topics Covered:</h2>
             <ul className="list-disc list-inside text-muted-foreground">
-              {roadmapData.paths.map((path, index) => (
+              {roadmapData.paths.map((path: string, index: number) => (
                 <li key={index} className="mb-2">
                   {path}
                 </li>
@@ -113,5 +113,5 @@ export default function RoadmapDetail({ params }: RoadmapParams) {
         </Card>
       </div>
     </main>
-  )
+  );
 }
