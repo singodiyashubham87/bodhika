@@ -1,4 +1,3 @@
-import { PageProps } from "@/.next/types/app/layout"
 import { Navbar } from "@/components/navbar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
