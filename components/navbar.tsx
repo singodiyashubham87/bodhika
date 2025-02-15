@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { Button } from '@/components/ui/button'
@@ -9,8 +9,60 @@ import { Moon, Sun, Menu, X, Lightbulb } from 'lucide-react'
 export function Navbar() {
   const { theme, setTheme } = useTheme()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  // Use useEffect to handle mounting state
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+  // Prevent hydration mismatch by not rendering theme-dependent content until mounted
+  const ThemeToggle = () => {
+    if (!mounted) {
+      return (
+        <Button variant="ghost" size="icon">
+          <span className="h-5 w-5" />
+        </Button>
+      )
+    }
+
+    return (
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      >
+        {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+      </Button>
+    )
+  }
+
+  const MobileThemeToggle = () => {
+    if (!mounted) return null
+
+    return (
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        className="w-full justify-start px-3"
+      >
+        {theme === 'dark' ? (
+          <>
+            <Sun className="h-5 w-5 mr-2" />
+            <span>Light Mode</span>
+          </>
+        ) : (
+          <>
+            <Moon className="h-5 w-5 mr-2" />
+            <span>Dark Mode</span>
+          </>
+        )}
+      </Button>
+    )
+  }
 
   return (
     <nav className="border-b bg-background">
@@ -37,13 +89,7 @@ export function Navbar() {
             <Link href="/interviews" className="text-foreground/80 hover:text-foreground px-3 py-2">
               Interviews
             </Link>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            >
-              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
@@ -91,24 +137,7 @@ export function Navbar() {
             >
               Interviews
             </Link>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="w-full justify-start px-3"
-            >
-              {theme === 'dark' ? (
-                <>
-                  <Sun className="h-5 w-5 mr-2" />
-                  <span>Light Mode</span>
-                </>
-              ) : (
-                <>
-                  <Moon className="h-5 w-5 mr-2" />
-                  <span>Dark Mode</span>
-                </>
-              )}
-            </Button>
+            <MobileThemeToggle />
           </div>
         </div>
       )}
