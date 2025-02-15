@@ -57,7 +57,7 @@ const roadmaps = {
 
 export function generateStaticParams() {
   return Object.keys(roadmaps).map((roadmap) => ({
-    "roadmap-name": roadmap,
+    params: { "roadmap-name": roadmap },
   }))
 }
 
@@ -114,3 +114,4 @@ export default function RoadmapDetail({ params }: { params: RoadmapParams }) {
     </main>
   )
 }
+
