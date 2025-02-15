@@ -97,7 +97,7 @@ export default function RoadmapDetail({ params }: { params: { "roadmap-name": st
             <Progress value={roadmapData.progress} className="h-3 mb-4" />
             <h2 className="text-xl font-semibold mb-3">Topics Covered:</h2>
             <ul className="list-disc list-inside text-muted-foreground">
-              {roadmapData.paths.map((path, index) => (
+              {roadmapData.paths.map((path: string, index: number) => (
                 <li key={index} className="mb-2">
                   {path}
                 </li>
