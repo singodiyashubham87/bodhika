@@ -16,7 +16,7 @@ const roadmaps = [
     color: "text-blue-500"
   },
   {
-    title: "Data Structures & Algorithms",
+    title: "Data Structures and Algorithms",
     description: "Master programming and problem solving",
     icon: Code2,
     progress: 0,
