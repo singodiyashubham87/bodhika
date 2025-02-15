@@ -190,11 +190,11 @@ export default function InterviewsPage() {
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
                       <FileText className="h-8 w-8 text-primary" />
-                      {"downloads" in item && (
+                      {"downloads" in item ? (
                         <Badge>{item.downloads} Downloads</Badge>
+                      ) : (
+                        <Badge>{item.reads} Reads</Badge>
                       )}
-
-                      {"reads" in item && <Badge>{item.reads} Reads</Badge>}
                     </div>
                     <CardTitle>{item.title}</CardTitle>
                     <CardDescription>{item.description}</CardDescription>
@@ -202,17 +202,18 @@ export default function InterviewsPage() {
                   <CardContent>
                     <div className="space-y-4">
                       <div className="space-y-2">
-                        {("formats" in item ? item.formats : item.topics).map(
-                          (topic, topicIndex) => (
-                            <div
-                              key={topicIndex}
-                              className="flex items-center text-sm"
-                            >
-                              <ArrowRight className="h-4 w-4 mr-2 text-primary" />
-                              {topic}
-                            </div>
-                          )
-                        )}
+                        {("formats" in item && item.formats
+                          ? item.formats
+                          : item.topics || []
+                        ).map((topic, topicIndex) => (
+                          <div
+                            key={topicIndex}
+                            className="flex items-center text-sm"
+                          >
+                            <ArrowRight className="h-4 w-4 mr-2 text-primary" />
+                            {topic}
+                          </div>
+                        ))}
                       </div>
                       <Button className="w-full">
                         {"downloads" in item ? "Download" : "Read More"}
