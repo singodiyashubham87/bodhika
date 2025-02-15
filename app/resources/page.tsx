@@ -271,7 +271,7 @@ function ResourceCard({ resource, icon: Icon, type }: any) {
             <Icon className="h-6 w-6 text-primary" />
             <div>
               <CardTitle>
-                <Link href={resource.url} target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-600">
+                <Link href={resource.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
                   {resource.title}
                 </Link>
               </CardTitle>
