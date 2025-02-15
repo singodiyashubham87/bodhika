@@ -43,21 +43,25 @@ export default function Home() {
               icon={BookOpen}
               title="Study Roadmaps"
               description="Well-structured learning paths for various tech domains"
+              route="/roadmaps"
             />
             <FeatureCard
               icon={Briefcase}
               title="Job Preparation"
               description="Comprehensive resources for placement preparation"
+              route="/resources"
             />
             <FeatureCard
               icon={GraduationCap}
               title="Online Courses"
               description="Access to top-rated courses across multiple domains"
+              route="/courses"
             />
             <FeatureCard
               icon={Users}
               title="Interview Prep"
               description="Expert guidance on technical and behavioral interviews"
+              route="/interviews"
             />
           </div>
         </div>
