@@ -17,7 +17,7 @@ const roadmaps = [
   },
   {
     title: "Data Structures & Algorithms",
-    description: "Master programming fundamentals and problem solving",
+    description: "Master programming and problem solving",
     icon: Code2,
     progress: 0,
     paths: ["Arrays", "Linked Lists", "Trees", "Graphs", "Dynamic Programming"],
