@@ -56,15 +56,17 @@ const roadmaps = {
 
 export function generateStaticParams() {
   return Object.keys(roadmaps).map((roadmap) => ({
-    params: { "roadmap-name": roadmap },
+    "roadmap-name": roadmap,
   }))
 }
 
 interface RoadmapParams {
-  "roadmap-name": keyof typeof roadmaps;
+  params: {
+    "roadmap-name": keyof typeof roadmaps;
+  };
 }
 
-export default function RoadmapDetail({ params }: { params: RoadmapParams }) {
+export default function RoadmapDetail({ params }: RoadmapParams) {
   if (!params) {
     return (
       <div className="text-center mt-10">
@@ -113,4 +115,3 @@ export default function RoadmapDetail({ params }: { params: RoadmapParams }) {
     </main>
   )
 }
-
