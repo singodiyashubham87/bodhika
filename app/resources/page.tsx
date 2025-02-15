@@ -157,6 +157,7 @@ const resources = {
       title: "Clean Code",
       description: "A Handbook of Agile Software Craftsmanship",
       author: "Robert C. Martin",
+      url: "https://www.amazon.fr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882",
       tags: ["Programming", "Best Practices", "Software Development"],
       rating: 4.7
     },
@@ -164,6 +165,7 @@ const resources = {
       title: "Cracking the Coding Interview",
       description: "189 Programming Questions & Solutions",
       author: "Gayle Laakmann McDowell",
+      url: "https://www.amazon.fr/Cracking-Coding-Interview-Programming-Questions/dp/0984782850",
       tags: ["Interview Prep", "DSA", "Career"],
       rating: 4.8
     },
@@ -171,6 +173,7 @@ const resources = {
       title: "You Don't Know JS",
       description: "Deep dive into JavaScript",
       author: "Kyle Simpson",
+      url: "https://www.amazon.fr/You-Dont-Know-JS-Scope/dp/1449335586",
       tags: ["JavaScript", "Web Development", "Programming"],
       rating: 4.8
     },
@@ -178,6 +181,7 @@ const resources = {
       title: "Design Patterns",
       description: "Elements of Reusable Object-Oriented Software",
       author: "Gang of Four",
+      url: "https://www.amazon.fr/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612",
       tags: ["Design Patterns", "Software Architecture", "OOP"],
       rating: 4.7
     },
@@ -185,6 +189,7 @@ const resources = {
       title: "The Pragmatic Programmer",
       description: "Your Journey to Mastery",
       author: "Andrew Hunt, David Thomas",
+      url: "https://www.amazon.fr/Pragmatic-Programmer-journey-mastery-Anniversary/dp/0135957052",
       tags: ["Programming", "Best Practices", "Career"],
       rating: 4.8
     },
@@ -192,39 +197,13 @@ const resources = {
       title: "Introduction to Algorithms",
       description: "Comprehensive guide to algorithms",
       author: "Thomas H. Cormen",
+      url: "https://www.amazon.fr/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844",
       tags: ["Algorithms", "Computer Science", "DSA"],
       rating: 4.9
-    },
-    {
-      title: "Head First Design Patterns",
-      description: "A Brain-Friendly Guide",
-      author: "Eric Freeman, Elisabeth Robson",
-      tags: ["Design Patterns", "Programming", "OOP"],
-      rating: 4.7
-    },
-    {
-      title: "Eloquent JavaScript",
-      description: "Modern Introduction to Programming",
-      author: "Marijn Haverbeke",
-      tags: ["JavaScript", "Programming", "Web Development"],
-      rating: 4.8
-    },
-    {
-      title: "Code Complete",
-      description: "A Practical Handbook of Software Construction",
-      author: "Steve McConnell",
-      tags: ["Programming", "Software Development", "Best Practices"],
-      rating: 4.8
-    },
-    {
-      title: "Python Crash Course",
-      description: "A Hands-On, Project-Based Introduction to Programming",
-      author: "Eric Matthes",
-      tags: ["Python", "Programming", "Beginners"],
-      rating: 4.7
     }
   ]
 }
+
 
 export default function ResourcesPage() {
   return (
@@ -291,7 +270,11 @@ function ResourceCard({ resource, icon: Icon, type }: any) {
           <div className="flex items-center space-x-4">
             <Icon className="h-6 w-6 text-primary" />
             <div>
-              <CardTitle>{resource.title}</CardTitle>
+              <CardTitle>
+                <Link href={resource.url} target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-600">
+                  {resource.title}
+                </Link>
+              </CardTitle>
               {type === "book" && (
                 <CardDescription>by {resource.author}</CardDescription>
               )}
