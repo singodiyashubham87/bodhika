@@ -36,6 +36,55 @@ const interviewContent = {
       difficulty: "Medium",
       questions: 100,
     },
+    {
+      title: "Object-Oriented Programming",
+      description: "OOP concepts and design patterns",
+      topics: ["Classes & Objects", "Inheritance", "Polymorphism"],
+      difficulty: "Medium",
+      questions: 80,
+    },
+    {
+      title: "Database Management",
+      description: "SQL and NoSQL database concepts",
+      topics: ["SQL Queries", "Indexing", "Normalization"],
+      difficulty: "Medium",
+      questions: 70,
+    },
+    {
+      title: "Operating Systems",
+      description: "Core OS concepts and principles",
+      topics: ["Processes", "Memory Management", "File Systems"],
+      difficulty: "Hard",
+      questions: 60,
+    },
+    {
+      title: "Network Programming",
+      description: "Networking protocols and architecture",
+      topics: ["TCP/IP", "HTTP/HTTPS", "WebSockets"],
+      difficulty: "Medium",
+      questions: 45,
+    },
+    {
+      title: "Security Concepts",
+      description: "Application security and best practices",
+      topics: ["Authentication", "Encryption", "Web Security"],
+      difficulty: "Hard",
+      questions: 55,
+    },
+    {
+      title: "Cloud Computing",
+      description: "Cloud platforms and services",
+      topics: ["AWS", "Azure", "Docker", "Kubernetes"],
+      difficulty: "Medium",
+      questions: 65,
+    },
+    {
+      title: "Testing & Debugging",
+      description: "Software testing methodologies",
+      topics: ["Unit Testing", "Integration Testing", "Debugging"],
+      difficulty: "Easy",
+      questions: 40,
+    },
   ],
   behavioral: [
     {
@@ -60,6 +109,48 @@ const interviewContent = {
       topics: ["Company Research", "Values Alignment", "Career Goals"],
       questions: 20,
     },
+    {
+      title: "Communication Skills",
+      description: "Effective communication scenarios",
+      topics: ["Presentation", "Written Communication", "Active Listening"],
+      questions: 35,
+    },
+    {
+      title: "Time Management",
+      description: "Prioritization and organization",
+      topics: ["Deadlines", "Multi-tasking", "Work-Life Balance"],
+      questions: 28,
+    },
+    {
+      title: "Adaptability",
+      description: "Handling change and challenges",
+      topics: ["Learning Agility", "Flexibility", "Growth Mindset"],
+      questions: 22,
+    },
+    {
+      title: "Initiative & Motivation",
+      description: "Self-driven achievements",
+      topics: ["Goal Setting", "Self-improvement", "Proactivity"],
+      questions: 26,
+    },
+    {
+      title: "Client Relations",
+      description: "Customer service and stakeholder management",
+      topics: ["Customer Focus", "Relationship Building", "Negotiation"],
+      questions: 24,
+    },
+    {
+      title: "Project Experience",
+      description: "Discussing past projects and achievements",
+      topics: ["Project Impact", "Challenges Overcome", "Lessons Learned"],
+      questions: 32,
+    },
+    {
+      title: "Career Development",
+      description: "Professional growth and aspirations",
+      topics: ["Career Planning", "Skill Development", "Industry Knowledge"],
+      questions: 28,
+    },
   ],
   resume: [
     {
@@ -79,6 +170,52 @@ const interviewContent = {
       description: "Ensure your resume stands out",
       topics: ["Format", "Content", "Keywords"],
       downloads: "15K+",
+    },
+    {
+      title: "Technical Skills Section",
+      description: "Showcase your technical expertise",
+      topics: ["Skills Organization", "Proficiency Levels", "Keywords"],
+      downloads: "12K+",
+    },
+    {
+      title: "Project Descriptions",
+      description: "How to describe your projects effectively",
+      topics: ["Impact Metrics", "Technical Details", "Role Clarity"],
+      reads: "18K+",
+    },
+    {
+      title: "Work Experience Format",
+      description: "Structure your work experience section",
+      topics: ["Bullet Points", "Achievements", "Responsibilities"],
+      downloads: "20K+",
+    },
+    {
+      title: "Education Section Guide",
+      description: "Highlight your educational background",
+      topics: [
+        "Degree Information",
+        "Relevant Coursework",
+        "Academic Achievements",
+      ],
+      reads: "14K+",
+    },
+    {
+      title: "Cover Letter Templates",
+      description: "Matching cover letters for your resume",
+      formats: ["Entry Level", "Senior Position", "Career Change"],
+      downloads: "8K+",
+    },
+    {
+      title: "Portfolio Integration",
+      description: "Link your projects and portfolio",
+      topics: ["GitHub Profile", "Personal Website", "Project Showcase"],
+      reads: "16K+",
+    },
+    {
+      title: "Resume Optimization",
+      description: "Optimize for ATS and human readers",
+      topics: ["ATS Keywords", "Formatting", "File Types"],
+      downloads: "22K+",
     },
   ],
 };
@@ -167,7 +304,7 @@ export default function InterviewsPage() {
                             key={topicIndex}
                             className="flex items-center text-sm"
                           >
-                            <MessageSquare className="h-4 w-4 mr-2 text-primary" />
+                            <MessageSquare className="h-4 w-4 mr -4 mr-2 text-primary" />
                             {topic}
                           </div>
                         ))}
@@ -190,11 +327,11 @@ export default function InterviewsPage() {
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
                       <FileText className="h-8 w-8 text-primary" />
-                      {"downloads" in item ? (
+                      {"downloads" in item && (
                         <Badge>{item.downloads} Downloads</Badge>
-                      ) : (
-                        <Badge>{item.reads} Reads</Badge>
                       )}
+
+                      {"reads" in item && <Badge>{item.reads} Reads</Badge>}
                     </div>
                     <CardTitle>{item.title}</CardTitle>
                     <CardDescription>{item.description}</CardDescription>
