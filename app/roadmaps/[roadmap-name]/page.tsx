@@ -1,3 +1,4 @@
+import { PageProps } from "@/.next/types/app/layout"
 import { Navbar } from "@/components/navbar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
@@ -60,8 +61,20 @@ export function generateStaticParams() {
   }))
 }
 
-export default function RoadmapDetail({ params }: { params: { "roadmap-name": string } }) {
-  const roadmapData = roadmaps[params["roadmap-name"]]
+interface RoadmapParams {
+  "roadmap-name": keyof typeof roadmaps;
+}
+
+export default function RoadmapDetail({ params }: { params: RoadmapParams }) {
+  if (!params) {
+    return (
+      <div className="text-center mt-10">
+        <h1 className="text-2xl font-bold">Roadmap Not Found</h1>
+      </div>
+    )
+  }
+
+  const roadmapData = roadmaps[params["roadmap-name"]];
 
   if (!roadmapData) {
     return (
