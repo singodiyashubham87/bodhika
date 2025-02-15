@@ -18,7 +18,8 @@ const courses = [
     rating: 4.8,
     tags: ["Web Development", "Full Stack", "JavaScript"],
     platform: "Udemy",
-    price: "$89.99"
+    price: "$89.99",
+    url: "https://www.udemy.com/course/the-complete-web-development-bootcamp"
   },
   {
     title: "Machine Learning Specialization",
@@ -30,7 +31,8 @@ const courses = [
     rating: 4.9,
     tags: ["Machine Learning", "AI", "Python"],
     platform: "Coursera",
-    price: "$49/month"
+    price: "$49/month",
+    url: "https://www.coursera.org/specializations/machine-learning-introduction"
   },
   {
     title: "Data Structures and Algorithms",
@@ -42,7 +44,8 @@ const courses = [
     rating: 4.7,
     tags: ["DSA", "Java", "Programming"],
     platform: "Udemy",
-    price: "$79.99"
+    price: "$79.99",
+    url: "https://www.udemy.com/course/data-structures-and-algorithms-deep-dive-using-java"
   },
   {
     title: "React - The Complete Guide",
@@ -54,7 +57,8 @@ const courses = [
     rating: 4.8,
     tags: ["React", "Web Development", "JavaScript"],
     platform: "Udemy",
-    price: "$89.99"
+    price: "$89.99",
+    url: "https://www.udemy.com/course/react-the-complete-guide-incl-redux"
   },
   {
     title: "Python for Data Science",
@@ -66,7 +70,8 @@ const courses = [
     rating: 4.7,
     tags: ["Python", "Data Science", "Analytics"],
     platform: "Udemy",
-    price: "$84.99"
+    price: "$84.99",
+    url: "https://www.udemy.com/course/python-for-data-science-and-machine-learning-bootcamp"
   },
   {
     title: "AWS Certified Solutions Architect",
@@ -78,7 +83,8 @@ const courses = [
     rating: 4.8,
     tags: ["AWS", "Cloud", "DevOps"],
     platform: "Udemy",
-    price: "$94.99"
+    price: "$94.99",
+    url: "https://www.udemy.com/course/aws-certified-solutions-architect-associate"
   },
   {
     title: "iOS & Swift - The Complete iOS App Development",
@@ -90,7 +96,8 @@ const courses = [
     rating: 4.8,
     tags: ["iOS", "Swift", "Mobile Development"],
     platform: "Udemy",
-    price: "$89.99"
+    price: "$89.99",
+    url: "https://www.udemy.com/course/ios-13-app-development-bootcamp"
   },
   {
     title: "The Complete JavaScript Course",
@@ -102,7 +109,8 @@ const courses = [
     rating: 4.8,
     tags: ["JavaScript", "Web Development", "ES6"],
     platform: "Udemy",
-    price: "$89.99"
+    price: "$89.99",
+    url: "https://www.udemy.com/course/the-complete-javascript-course"
   },
   {
     title: "Flutter & Dart - The Complete Guide",
@@ -114,7 +122,8 @@ const courses = [
     rating: 4.7,
     tags: ["Flutter", "Dart", "Mobile Development"],
     platform: "Udemy",
-    price: "$84.99"
+    price: "$84.99",
+    url: "https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps"
   },
   {
     title: "Deep Learning Specialization",
@@ -126,9 +135,11 @@ const courses = [
     rating: 4.9,
     tags: ["Deep Learning", "AI", "Neural Networks"],
     platform: "Coursera",
-    price: "$49/month"
+    price: "$49/month",
+    url: "https://www.coursera.org/specializations/deep-learning"
   }
 ]
+
 
 export default function CoursesPage() {
   return (
@@ -146,51 +157,22 @@ export default function CoursesPage() {
           {courses.map((course, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
               <div className="relative h-48 w-full">
-                <Image
-                  src={course.image}
-                  alt={course.title}
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
+                <Image src={course.image} alt={course.title} fill className="object-cover rounded-t-lg" />
               </div>
               <CardHeader>
-                <div className="flex items-center justify-between">
-                  <Badge>{course.platform}</Badge>
-                  <div className="flex items-center">
-                    <Star className="h-4 w-4 text-yellow-500 mr-1" />
-                    <span className="text-sm font-medium">{course.rating}</span>
-                  </div>
-                </div>
+                <Badge>{course.platform}</Badge>
                 <CardTitle className="line-clamp-2">{course.title}</CardTitle>
                 <CardDescription>{course.instructor}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4 line-clamp-2">
-                  {course.description}
-                </p>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Clock className="h-4 w-4 mr-1" />
-                    {course.duration}
-                  </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Users className="h-4 w-4 mr-1" />
-                    {course.students}
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {course.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="secondary">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
+                <p className="text-muted-foreground mb-4 line-clamp-2">{course.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-lg">{course.price}</span>
-                  <Button>
-                    View Course
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </Button>
+                  <a href={course.url} target="_blank" rel="noopener noreferrer">
+                    <Button>
+                      View Course <ExternalLink className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
