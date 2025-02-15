@@ -29,6 +29,55 @@ const resources = {
       url: "https://developer.mozilla.org",
       tags: ["Web Development", "Documentation", "Reference"],
       rating: 4.9
+    },
+    {
+      title: "Codecademy",
+      description: "Interactive coding lessons in various programming languages",
+      url: "https://www.codecademy.com",
+      tags: ["Programming", "Interactive", "Multiple Languages"],
+      rating: 4.7
+    },
+    {
+      title: "GitHub",
+      description: "Version control and collaboration platform for developers",
+      url: "https://github.com",
+      tags: ["Git", "Open Source", "Collaboration"],
+      rating: 4.9
+    },
+    {
+      title: "Stack Overflow",
+      description: "Q&A community for programmers",
+      url: "https://stackoverflow.com",
+      tags: ["Programming", "Community", "Problem Solving"],
+      rating: 4.8
+    },
+    {
+      title: "Dev.to",
+      description: "Community of software developers sharing knowledge",
+      url: "https://dev.to",
+      tags: ["Blog", "Community", "Programming"],
+      rating: 4.7
+    },
+    {
+      title: "CSS-Tricks",
+      description: "Tips, tricks, and techniques for web developers",
+      url: "https://css-tricks.com",
+      tags: ["CSS", "Web Development", "Frontend"],
+      rating: 4.8
+    },
+    {
+      title: "Kaggle",
+      description: "Platform for data science and machine learning",
+      url: "https://www.kaggle.com",
+      tags: ["Data Science", "Machine Learning", "Competitions"],
+      rating: 4.8
+    },
+    {
+      title: "HackerRank",
+      description: "Coding challenges and competitions",
+      url: "https://www.hackerrank.com",
+      tags: ["Programming", "Practice", "Interviews"],
+      rating: 4.7
     }
   ],
   youtube: [
@@ -52,6 +101,55 @@ const resources = {
       url: "https://www.youtube.com/@TechWithTim",
       tags: ["Python", "Machine Learning", "Tutorials"],
       rating: 4.7
+    },
+    {
+      title: "Fireship",
+      description: "Quick, practical web development tutorials",
+      url: "https://www.youtube.com/@Fireship",
+      tags: ["Web Development", "Quick Tips", "Modern Tech"],
+      rating: 4.9
+    },
+    {
+      title: "The Net Ninja",
+      description: "Full stack web development tutorials",
+      url: "https://www.youtube.com/@NetNinja",
+      tags: ["Web Development", "Full Stack", "Tutorials"],
+      rating: 4.8
+    },
+    {
+      title: "Academind",
+      description: "In-depth programming courses and tutorials",
+      url: "https://www.youtube.com/@academind",
+      tags: ["Programming", "Web Development", "Courses"],
+      rating: 4.8
+    },
+    {
+      title: "Coding Train",
+      description: "Creative coding tutorials and challenges",
+      url: "https://www.youtube.com/@TheCodingTrain",
+      tags: ["Creative Coding", "JavaScript", "P5.js"],
+      rating: 4.9
+    },
+    {
+      title: "Programming with Mosh",
+      description: "Professional programming tutorials",
+      url: "https://www.youtube.com/@programmingwithmosh",
+      tags: ["Programming", "Software Development", "Tutorials"],
+      rating: 4.8
+    },
+    {
+      title: "Sentdex",
+      description: "Python programming and machine learning",
+      url: "https://www.youtube.com/@sentdex",
+      tags: ["Python", "Machine Learning", "Data Science"],
+      rating: 4.7
+    },
+    {
+      title: "Web Dev Simplified",
+      description: "Web development concepts explained simply",
+      url: "https://www.youtube.com/@WebDevSimplified",
+      tags: ["Web Development", "JavaScript", "Tutorials"],
+      rating: 4.8
     }
   ],
   books: [
@@ -75,6 +173,55 @@ const resources = {
       author: "Kyle Simpson",
       tags: ["JavaScript", "Web Development", "Programming"],
       rating: 4.8
+    },
+    {
+      title: "Design Patterns",
+      description: "Elements of Reusable Object-Oriented Software",
+      author: "Gang of Four",
+      tags: ["Design Patterns", "Software Architecture", "OOP"],
+      rating: 4.7
+    },
+    {
+      title: "The Pragmatic Programmer",
+      description: "Your Journey to Mastery",
+      author: "Andrew Hunt, David Thomas",
+      tags: ["Programming", "Best Practices", "Career"],
+      rating: 4.8
+    },
+    {
+      title: "Introduction to Algorithms",
+      description: "Comprehensive guide to algorithms",
+      author: "Thomas H. Cormen",
+      tags: ["Algorithms", "Computer Science", "DSA"],
+      rating: 4.9
+    },
+    {
+      title: "Head First Design Patterns",
+      description: "A Brain-Friendly Guide",
+      author: "Eric Freeman, Elisabeth Robson",
+      tags: ["Design Patterns", "Programming", "OOP"],
+      rating: 4.7
+    },
+    {
+      title: "Eloquent JavaScript",
+      description: "Modern Introduction to Programming",
+      author: "Marijn Haverbeke",
+      tags: ["JavaScript", "Programming", "Web Development"],
+      rating: 4.8
+    },
+    {
+      title: "Code Complete",
+      description: "A Practical Handbook of Software Construction",
+      author: "Steve McConnell",
+      tags: ["Programming", "Software Development", "Best Practices"],
+      rating: 4.8
+    },
+    {
+      title: "Python Crash Course",
+      description: "A Hands-On, Project-Based Introduction to Programming",
+      author: "Eric Matthes",
+      tags: ["Python", "Programming", "Beginners"],
+      rating: 4.7
     }
   ]
 }
