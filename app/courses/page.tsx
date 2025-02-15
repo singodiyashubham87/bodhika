@@ -67,6 +67,66 @@ const courses = [
     tags: ["Python", "Data Science", "Analytics"],
     platform: "Udemy",
     price: "$84.99"
+  },
+  {
+    title: "AWS Certified Solutions Architect",
+    description: "Prepare for AWS certification with hands-on labs",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=60",
+    instructor: "Stephane Maarek",
+    duration: "35 hours",
+    students: "400K+",
+    rating: 4.8,
+    tags: ["AWS", "Cloud", "DevOps"],
+    platform: "Udemy",
+    price: "$94.99"
+  },
+  {
+    title: "iOS & Swift - The Complete iOS App Development",
+    description: "Build iOS apps with Swift and UIKit",
+    image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&auto=format&fit=crop&q=60",
+    instructor: "Angela Yu",
+    duration: "55 hours",
+    students: "200K+",
+    rating: 4.8,
+    tags: ["iOS", "Swift", "Mobile Development"],
+    platform: "Udemy",
+    price: "$89.99"
+  },
+  {
+    title: "The Complete JavaScript Course",
+    description: "Master JavaScript with modern ES6+ features",
+    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop&q=60",
+    instructor: "Jonas Schmedtmann",
+    duration: "69 hours",
+    students: "600K+",
+    rating: 4.8,
+    tags: ["JavaScript", "Web Development", "ES6"],
+    platform: "Udemy",
+    price: "$89.99"
+  },
+  {
+    title: "Flutter & Dart - The Complete Guide",
+    description: "Build native mobile apps for Android and iOS",
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=60",
+    instructor: "Maximilian Schwarzmüller",
+    duration: "45 hours",
+    students: "150K+",
+    rating: 4.7,
+    tags: ["Flutter", "Dart", "Mobile Development"],
+    platform: "Udemy",
+    price: "$84.99"
+  },
+  {
+    title: "Deep Learning Specialization",
+    description: "Master deep learning and neural networks",
+    image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&auto=format&fit=crop&q=60",
+    instructor: "Andrew Ng",
+    duration: "100 hours",
+    students: "800K+",
+    rating: 4.9,
+    tags: ["Deep Learning", "AI", "Neural Networks"],
+    platform: "Coursera",
+    price: "$49/month"
   }
 ]
 
