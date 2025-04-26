@@ -20,6 +20,7 @@
 *.pem
 package-lock.json
 yarn.lock
+.env
 
 # debug
 npm-debug.log*
