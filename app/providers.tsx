@@ -6,7 +6,7 @@ import { ThemeProvider } from "next-themes";
 export function Providers({ children }: { children: React.ReactNode }) {
   const AUTH0_DOMAIN = process.env.NEXT_PUBLIC_AUTH0_DOMAIN;
   const AUTH0_CLIENT_ID = process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID;
-  const AUTH0_REDIRECT_URI = process.env.NEXT_PUBLIC_AUTH0_REDIRECT_URI || window.location.origin;
+  const AUTH0_REDIRECT_URI = process.env.NEXT_PUBLIC_AUTH0_REDIRECT_URI;
 
   if (!AUTH0_CLIENT_ID || !AUTH0_DOMAIN || !AUTH0_REDIRECT_URI) {
     throw new Error("Environment variables for Auth0 are not defined");
