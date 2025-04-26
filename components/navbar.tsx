@@ -1,22 +1,24 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { useTheme } from 'next-themes'
-import { Button } from '@/components/ui/button'
-import { Moon, Sun, Menu, X, Lightbulb } from 'lucide-react'
+import { useState, useEffect, Fragment } from "react";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import { Moon, Sun, Menu, X, Lightbulb } from "lucide-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export function Navbar() {
-  const { theme, setTheme } = useTheme()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   // Use useEffect to handle mounting state
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   // Prevent hydration mismatch by not rendering theme-dependent content until mounted
   const ThemeToggle = () => {
@@ -25,31 +27,35 @@ export function Navbar() {
         <Button variant="ghost" size="icon">
           <span className="h-5 w-5" />
         </Button>
-      )
+      );
     }
 
     return (
       <Button
         variant="ghost"
         size="icon"
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
-        {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+        {theme === "dark" ? (
+          <Sun className="h-5 w-5" />
+        ) : (
+          <Moon className="h-5 w-5" />
+        )}
       </Button>
-    )
-  }
+    );
+  };
 
   const MobileThemeToggle = () => {
-    if (!mounted) return null
+    if (!mounted) return null;
 
     return (
       <Button
         variant="ghost"
         size="icon"
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         className="w-full justify-start px-3"
       >
-        {theme === 'dark' ? (
+        {theme === "dark" ? (
           <>
             <Sun className="h-5 w-5 mr-2" />
             <span>Light Mode</span>
@@ -61,13 +67,13 @@ export function Navbar() {
           </>
         )}
       </Button>
-    )
-  }
+    );
+  };
 
   return (
     <nav className="border-b bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Lightbulb className="h-8 w-8 text-primary" />
@@ -75,33 +81,56 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-4">
-            <Link href="/roadmaps" className="text-foreground/80 hover:text-foreground px-3 py-2">
-              Roadmaps
-            </Link>
-            <Link href="/resources" className="text-foreground/80 hover:text-foreground px-3 py-2">
-              Resources
-            </Link>
-            <Link href="/courses" className="text-foreground/80 hover:text-foreground px-3 py-2">
-              Courses
-            </Link>
-            <Link href="/interviews" className="text-foreground/80 hover:text-foreground px-3 py-2">
-              Interviews
-            </Link>
-            <ThemeToggle />
-          </div>
+          {isAuthenticated ? (
+            <Fragment>
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex md:items-center md:space-x-4">
+                <Link
+                  href="/roadmaps"
+                  className="text-foreground/80 hover:text-foreground px-3 py-2"
+                >
+                  Roadmaps
+                </Link>
+                <Link
+                  href="/resources"
+                  className="text-foreground/80 hover:text-foreground px-3 py-2"
+                >
+                  Resources
+                </Link>
+                <Link
+                  href="/courses"
+                  className="text-foreground/80 hover:text-foreground px-3 py-2"
+                >
+                  Courses
+                </Link>
+                <Link
+                  href="/interviews"
+                  className="text-foreground/80 hover:text-foreground px-3 py-2"
+                >
+                  Interviews
+                </Link>
+                <Button variant="outline" onClick={() => logout()}>
+                  Logout
+                </Button>
+                <ThemeToggle />
+              </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleMenu}
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {/* Mobile menu button */}
+              <div className="md:hidden flex items-center">
+                <Button variant="ghost" size="icon" onClick={toggleMenu}>
+                  {isMenuOpen ? (
+                    <X className="h-6 w-6" />
+                  ) : (
+                    <Menu className="h-6 w-6" />
+                  )}
+                </Button>
+              </div>
+            </Fragment>
+          ) : (
+            <Button variant="outline" onClick={() => loginWithRedirect()}>
+              Login
             </Button>
-          </div>
+          )}
         </div>
       </div>
 
@@ -137,10 +166,13 @@ export function Navbar() {
             >
               Interviews
             </Link>
+            <Button variant="outline" onClick={() => logout()}>
+              Logout
+            </Button>
             <MobileThemeToggle />
           </div>
         </div>
       )}
     </nav>
-  )
+  );
 }
