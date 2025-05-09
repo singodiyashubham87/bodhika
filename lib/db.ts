@@ -1,43 +1,67 @@
-import mongoose from 'mongoose';
-import type { Connection } from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
+import mongoose from 'mongoose';
+import type { ConnectOptions, Connection } from 'mongoose';
 const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/bodhika';
 const dbName = 'bodhika';
 
-let connection: Connection;
+let cachedConnection: Connection | null = null;
 
 const connectToDatabase = async (): Promise<Connection> => {
-  if (connection && connection.readyState === 1) {
-    return connection; // Return existing connection if already connected
+  if (cachedConnection && cachedConnection.readyState === 1) {
+    console.log('Using existing database connection');
+    return cachedConnection;
   }
 
   try {
-    const options = {
+    // Close any existing connections to avoid memory leaks
+    if (cachedConnection) {
+      await mongoose.disconnect();
+    }
+
+    const options: ConnectOptions = {
       dbName,
-      serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
-      connectTimeoutMS: 10000, // Connection timeout
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 10000,
+      maxPoolSize: 10, // Recommended to set a connection pool size
     };
 
-    await mongoose.connect(uri, options);
-    connection = mongoose.connection;
-    console.log('Successfully connected to MongoDB database:', dbName);
+    // Set up event listeners before connecting
+    mongoose.connection.on('connected', () => {
+      console.log(`Mongoose connected to ${dbName}`);
+    });
 
-    // Handle connection errors
-    connection.on('error', (error) => {
+    mongoose.connection.on('error', (error) => {
       console.error('MongoDB connection error:', error);
-      throw new Error('Database connection error');
     });
 
-    // Handle disconnection
-    connection.on('disconnected', () => {
-      console.log('MongoDB connection disconnected');
+    mongoose.connection.on('disconnected', () => {
+      console.log('Mongoose disconnected');
     });
-
-    return connection;
+    // Actually connect to the database
+    await mongoose.connect(uri, options);
+    
+    // Cache the connection
+    cachedConnection = mongoose.connection;
+    
+    return cachedConnection;
   } catch (error) {
     console.error('Failed to connect to MongoDB:', error);
-    throw new Error('Database connection failed');
+    throw new Error(`Database connection failed: ${error instanceof Error ? error.message : String(error)}`);
   }
 };
+
+// Handle process termination gracefully
+process.on('SIGINT', async () => {
+  try {
+    await mongoose.disconnect();
+    console.log('Mongoose connection disconnected through app termination');
+    process.exit(0);
+  } catch (error) {
+    console.error('Error during disconnection:', error);
+    process.exit(1);
+  }
+});
 
 export default connectToDatabase;
