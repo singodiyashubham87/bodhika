@@ -1,4 +1,4 @@
-# Bodhika - Career Preparation Platform
+# Bodhika: The Enlightener
 
 <div align="center">Bodhika, derived from the Sanskrit word for "enlightenment," is a web platform designed to empower students and job seekers with a centralized hub of curated resources for career preparation. Explore study roadmaps, job preparation tools, online courses, and more!</div>
 
