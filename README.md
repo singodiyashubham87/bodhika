@@ -7,11 +7,26 @@
 - **NextJS**: Frontend framework using Next.js for building dynamic interfaces.
 - **TailwindCSS**: Utility-first CSS framework for styling.
 - **MongoDB**: NoSQL database for storing resource metadata.
-- **OAuth**: Authentication integration with Google and GitHub.
+- **Auth0**: Authentication integration with Google and GitHub.
 - **Vercel**: Platform for deployment and scaling.
 
-## Getting Started
-Follow these steps to get started with Bodhika:
+# Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+# Contributing Guidelines
+
+We believe in the power of collaboration. If you have ideas to improve College.ai, feel free to contribute! Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
+
+# Getting Started
+
+### Comprehensive Guide for Installing and Setting Up Bodhika
+
+#### Prerequisites
+- **Node.js**: Ensure that Node.js is installed on your machine. You can download it from the [official Node.js website](https://nodejs.org/).
+
+### Installation Instructions
+
 
 ### Prerequisites
 
@@ -30,7 +45,7 @@ Follow these steps to get started with Bodhika:
    ```
 3. Set up environment variables:
  - Create a .env file in the root directory.
-- Add your MongoDB URI, and OAuth credentials (e.g., Google Client ID, GitHub Client Secret).
+- Add your MongoDB URI, and Auth0 credentials (e.g., Google Client ID, GitHub Client Secret).
    ```bash
    MONGODB_URI=your_mongodb_uri
    NEXT_PUBLIC_AUTH0_DOMAIN=your-auth0-domain
@@ -50,5 +65,27 @@ Follow these steps to get started with Bodhika:
 - **YouTube Playlists**: Curated videos for technical and soft skills.
 - **Interview Preparation**: Guidance on coding questions, behavioral interviews, and resume building.
 
-### AUTHOR
-* <a href="https://shubham-s-socials.vercel.app/"><i>Shubham Singodiya</i></a>
+# Contributions
+
+You can find the contributing guideline here -> [CONTRIBUTING GUIDELINES](CONTRIBUTING.md)
+
+# Author
+
+- [**_Shubham Singodiya_**](https://shubham-s-socials.vercel.app/) - Lead developer and creator of the whiteboard web application.
+
+# License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# Thanks to all the Contributors
+
+Thanks a lot for spending your time helping this project grow. Keep rocking!
+
+<a href="https://github.com/singodiyashubham87/bodhika/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=singodiyashubham87/bodhika" />
+</a>
+
+# Message from PA
+
+Thank you for visiting Bodhika! 💝
+</br>Feel free to explore the code, contribute, and provide feedback.
