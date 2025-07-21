@@ -77,7 +77,7 @@ You can find the contributing guideline here -> [CONTRIBUTING GUIDELINES](CONTRI
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Thanks to all the Contributors
+# Thanks to all the Contributors 😊
 
 Thanks a lot for spending your time helping this project grow. Keep rocking!
 
