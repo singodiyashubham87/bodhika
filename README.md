@@ -2,6 +2,13 @@
 
 <div align="center">Bodhika, derived from the Sanskrit word for "enlightenment," is a web platform designed to empower students and job seekers with a centralized hub of curated resources for career preparation. Explore study roadmaps, job preparation tools, online courses, and more!</div>
 
+## Live Demo
+
+Experience Bodhika in action:
+
+[https://bodhika.vercel.app/](https://bodhika.vercel.app/)
+
+
 ## Tech Stack
 
 - **NextJS**: Frontend framework using Next.js for building dynamic interfaces.
