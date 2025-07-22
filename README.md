@@ -16,7 +16,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 # Contributing Guidelines
 
-We believe in the power of collaboration. If you have ideas to improve College.ai, feel free to contribute! Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
+We believe in the power of collaboration. If you have ideas to improve Bodhika, feel free to contribute! Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
 
 # Getting Started
 
@@ -26,13 +26,6 @@ We believe in the power of collaboration. If you have ideas to improve College.a
 - **Node.js**: Ensure that Node.js is installed on your machine. You can download it from the [official Node.js website](https://nodejs.org/).
 
 ### Installation Instructions
-
-
-### Prerequisites
-
-- Node.js (https://nodejs.org/) installed on your machine.
-
-### Installation
 
 1. Clone the repository:
    ```bash
