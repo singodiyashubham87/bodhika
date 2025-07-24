@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    container_name: bodhika-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  app:
+    build: .
+    container_name: bodhika-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/bodhika
+      - NEXT_PUBLIC_AUTH0_DOMAIN=${NEXT_PUBLIC_AUTH0_DOMAIN}
+      - NEXT_PUBLIC_AUTH0_CLIENT_ID=${NEXT_PUBLIC_AUTH0_CLIENT_ID}
+      - NEXT_PUBLIC_AUTH0_REDIRECT_URI=${NEXT_PUBLIC_AUTH0_REDIRECT_URI}
+    command: yarn start
+
+volumes:
+  mongo_data:
