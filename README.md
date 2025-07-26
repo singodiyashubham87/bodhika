@@ -71,7 +71,7 @@ You can find the contributing guideline here -> [CONTRIBUTING GUIDELINES](CONTRI
 
 # Author
 
-- [**_Shubham Singodiya_**](https://shubham-s-socials.vercel.app/) - Lead developer and creator of the whiteboard web application.
+- [**_Shubham Singodiya_**](https://shubham-s-socials.vercel.app/) - Lead developer and creator of bodhika.
 
 # License
 
