@@ -109,6 +109,12 @@ export function Navbar() {
                 >
                   Interviews
                 </Link>
+                 <Link
+                  href="/contact"
+                  className="text-foreground/80 hover:text-foreground px-3 py-2"
+                >
+                  Contact
+                </Link>
                 <Button variant="outline" onClick={() => logout()}>
                   Logout
                 </Button>
