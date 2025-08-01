@@ -22,12 +22,13 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="/bodhika.png" />
       </head>
-      <Providers>
-        <body className={inter.className}>
+
+      <body className={inter.className}>
+        <Providers>
           {children}
           <Toaster />
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }
