@@ -10,6 +10,56 @@
 - **Auth0**: Authentication integration with Google and GitHub.
 - **Vercel**: Platform for deployment and scaling.
 
+## Project Structure
+
+```bash
+bodhika/
+├── .github/             
+├── app/                    
+│     ├── courses/
+│     ├── interviews/
+│     ├── resources/
+│     ├── roadmaps/          
+│     │    ├── [roadmap-name]/
+│     │    └── page.tsx 
+│     ├── feature_card.tsx
+│     ├── globals.css
+│     ├── layout.tsx
+│     ├── page.tsx   
+│     └── providers.tsx                   
+├── components/
+│     ├── ui/
+│     ├── navbar.tsx
+│     └── theme-provider.tsx         
+├── hooks/
+│     └── use-toast.ts          
+├── lib/ 
+│     ├── db.ts
+│     ├── seed.ts
+│     ├── seeds.ts
+│     └── utils.ts 
+├── public/
+│     └── bodhika.png                          
+├── .env.example                      
+├── .eslintrc.json             
+├── .gitignore                                 
+├── CODE_OF_CONDUCT.md                         
+├── CONTRIBUTING.md   
+├── LICENSE            
+├── README.md                
+├── Tasks.md              
+├── components.json                             
+├── next.config.js
+├── package.json 
+├── postcss.config.js  
+├── tailwind.config.ts  
+├── tsconfig.json  
+├── vercel.json                
+└── yarn.lock             
+          
+
+````
+
 # Code of Conduct
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
