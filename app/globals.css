@@ -80,3 +80,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+.goals-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+.goals-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.goals-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #a1a1aa;
+  border-radius: 6px;
+}
+.goals-scroll-container:hover::-webkit-scrollbar-thumb {
+  background-color: #71717a;
+}
