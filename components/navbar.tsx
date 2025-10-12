@@ -143,6 +143,13 @@ export function Navbar({ userProfile }: NavbarProps = {}) {
                 >
                   Interviews
                 </Link>
+                <Link
+                  href="/contact"
+                  className="text-foreground/80 hover:text-foreground px-3 py-2"
+                >
+                  Contact
+                </Link>
+
 
                 <ThemeToggle />
 
@@ -244,6 +251,16 @@ export function Navbar({ userProfile }: NavbarProps = {}) {
             >
               Interviews
             </Link>
+
+            <Link
+              href="/contact"
+              className="block px-3 py-2 text-foreground/80 hover:text-foreground"
+              onClick={toggleMenu}
+            >
+              Contact
+            </Link>
+
+
             <Link
               href="/profile"
               className="block px-3 py-2 text-foreground/80 hover:text-foreground"
