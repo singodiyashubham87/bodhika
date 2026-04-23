@@ -1,6 +1,7 @@
 "use client";
 
 import { Navbar } from "@/components/navbar";
+import { useRouter } from 'next/navigation';
 import {
   Card,
   CardContent,
@@ -221,6 +222,7 @@ const interviewContent = {
 };
 
 export default function InterviewsPage() {
+  const router = useRouter();
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -272,7 +274,16 @@ export default function InterviewsPage() {
                         <span className="text-sm text-muted-foreground">
                           {item.questions} questions
                         </span>
-                        <Button>Start Practice</Button>
+                        <Button
+                            onClick={() => {
+                            // Redirect only if the title includes 'dsa' (case-insensitive)
+                            if (item.title.toLowerCase().includes('data structures & algorithms')) {
+                              router.push('/interviews/dsa-questions');
+                            } else {
+                              alert('Practice page coming soon for this topic!');
+                            }
+                           }}
+                        >Start Practice</Button>
                       </div>
                     </div>
                   </CardContent>
